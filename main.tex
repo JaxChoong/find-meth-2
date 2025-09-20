@@ -1,19 +1,23 @@
 \documentclass[a4paper, 12pt]{article}
-\usepackage[T1]{fontenc}
+\usepackage[american]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{apacite}
+\usepackage{csquotes}
+\usepackage[style=apa,backend=biber,natbib=true]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\usepackage[T1]{fontenc}
 \usepackage{mathptmx}
 \usepackage{enumerate}
+\usepackage{amsmath} 
 \usepackage[margin=0.5in]{geometry}
-\usepackage{xspace}
+
+\addbibresource{main.bib}
 
 \renewcommand{\baselinestretch}{1.0}
-
 \newcommand\nd{\textsuperscript{nd}\xspace}
 \newcommand\rd{\textsuperscript{rd}\xspace}
-\newcommand\nth{\textsuperscript{th}\xspace} %\th is taken already
+\newcommand\nth{\textsuperscript{th}\xspace} 
 
-\setlength\parindent{0pt} % set paragraph indent to zero
+\setlength\parindent{24pt}
 
 % fill up your name, ID, contribution and paper title here
 \author{
@@ -34,11 +38,50 @@ This includes the problem statement, objectives, research methodology, expected 
 \textbf{Keywords:} keyword1, keyword2 \\
 
 \section{Introduction}
-This section contains a brief introduction on the research topic and background. \\
-Citation example: \cite{example2024}.
+The field of artificial intelligence (AI) is experiencing a major boom, best captured by the exponential growth in the computational resources required to train the latest, top-notch models. \citet{Sevilla_Roldan_2024} report that the amount of training compute increased by 4.4 times annually between February 2022 and May 2024. The widespread use of AI in companies across various industries is accompanied by an ever-increasing computational demand for training AI models. According to \citet{Maslej2025}, 78\% of businesses used AI in at least one business function, up from 55\% in 2023 (p.~262).
+
+\par Modern AI's increased processing capacity depends on millions of physical servers that are driven by enormous data centers located all over the world.  These advanced infrastructures greatly increase the carbon footprint of the AI landscape, despite helping to enable training and powering the most recent AI models.  Embodied carbon, or the emissions released during the manufacturing of hardware components, accounts for the largest portion of AI's total carbon emissions, as noted by \citet{Wu2022} in their research (p.~5).
+
+\par Other than the manufacturing stage, another overlooked aspect when it comes to evaluating the carbon emissions of AI is the end-of-life phase for the same hardware components. Nowadays, especially with the cycle of accelerated hardware obsolescence, the hardware devices that can no longer accommodate the increasing computational demands eventually results in electronic waste (e-waste). 
 
 \section{Problem Statement}
-This section discusses the problem statement.. 
+\subsection*{The Root Problem}
+The obsolescence of hardware that are no longer able to meet the computational demands of AI creates a global e-waste crisis, which is not adequately addressed by existing research and current industry practices. The scale of the problem, and the potential solutions to it are still unclear.
+
+\subsection*{Research Gaps}
+Through analyzing multiple research works, several research gaps can be identified: 
+\begin{enumerate} 
+	\item Lack of Long-Term E-Waste Forecasting: Although \citet{wang_2024_ewaste} present a foundational model that forecasts e-waste, its scope is limited to only the year 2030. Infrastructure policy planning and developing standard industry practices for dealing with obsolete devices are usually long-term efforts, a forecast that extends to at least 2035 is necessary. 
+	
+	\item Ethical and Regulatory Gaps: As highlighted by \citet{Zhuk2023}, there is an ethical and legal grey area when it comes to handling e-waste. The toxic components of e-waste from developed countries usually end up in the landfills of developing nations that do not have the capacity or recycling infrastructure to dispose of the e-waste properly. There is a need to revamp existing disposal policies to address this issue.
+	
+	\item Absence of Quantified Solutions: Although \citet{wang_2024_ewaste} found circular economy strategies for hardware devices to be useful in reducing e-waste by 58\%, the precise implementation methods for circular economy is unclear and not well-documented.
+\end{enumerate}
+
+\subsection*{Analysis and Comparison of Possible Research Problems}
+Based on the research gaps identified, there are several research problems that arise: 
+
+\begin{enumerate}
+ 	\item The Strategic Planning Problem: Without accurate, long-term projections of AI-driven e-waste after 2030, governments and businesses are unable to make strategic, well-informed decisions regarding the development of sustainable hardware, the allocation of resources for waste management, and future recycling infrastructure. As a result, society is not ready for the full impact of the e-waste wave that is anticipated to occur in the next ten to fifteen years.
+ 
+	\item The Environmental Injustice Problem: There is a serious environmental injustice issue as a result of the lack of clear international regulations and moral standards for the disposal of AI e-waste.  The harmful effects of the AI revolution are disproportionately felt by developing countries, which have not profited from the advancement of the technology and are now dealing with chronic soil contamination, water pollution, and public health emergencies.
+	
+ 	\item The Implementation Issue: Although the AI sector is aware of the concepts of circular economy, there is a serious implementation issue.  Businesses are reluctant to invest in strategies like hardware lifespan extension or module reuse because there are no standardized models or metrics to assess their efficacy and economic feasibility. This inaction perpetuates the linear "take-make-dispose" model, directly contributing to the growing e-waste crisis.
+	
+\end{enumerate}
+
+Despite the enormous global significance of problem (2), solving the fundamental problems of international law and trade policy would necessitate a scope that goes well beyond this computer science research project.  Similarly, the highly proprietary nature of hardware life cycle data and the absence of standardized measurement models hinder a thorough investigation, even though Problem (3) is crucial for the AI landscape.
+
+\subsection*{Selection of A Research Problem}
+After careful consideration, Problem (1) is selected as the main focus for this research proposal for the reasons as follows: 
+
+\begin{itemize}
+	\item Relevance and Significance: An essential first step is a forecast that lasts until at least 2035. It offers the information required to spur action on the other two issues. It is challenging to generate political will for new regulations (Problem 2) or encourage industry investment in innovative solutions (Problem 3) without a clear understanding of the actual scope of the upcoming crisis.
+	
+	\item Feasibility: This research can directly expand on the Computational Power-driven Material Flow Analysis (CP-MFA) model that Wang et al. (2024) have already proposed. With the methodology already in place, this research can concentrate on increasing its predictive capacity by adding fresh data and honing the hypotheses over a longer period of time.
+	
+	\item Measurable Outcome: A precise, quantifiable, and useful forecast will be the research's output.  Policymakers, business executives, and other researchers in the field will find this concrete outcome to be a useful contribution.
+\end{itemize}
 
 \section{Research Questions, Hypotheses and Objectives}
 Minimum of two and maximum of four for each of the research questions, hypotheses, and research objectives. You can use numbering/bullet point to list them out.
@@ -58,9 +101,7 @@ Use a flowchart for the research activities and a Gantt chart for the research s
 In this section, discussion will be on novel theories/findings/knowledge and the impact on society, nation and/or economy.
 
 %References
-\bibliographystyle{apacite}
-\bibliography{main}
-
+\printbibliography
 
 \end{document}
 
