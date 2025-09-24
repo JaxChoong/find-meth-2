@@ -7,7 +7,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{mathptmx}
 \usepackage{enumerate}
-\usepackage{amsmath} 
+\usepackage{amsmath}
+\usepackage{graphicx}
 \usepackage[margin=0.5in]{geometry}
 
 \addbibresource{main.bib}
@@ -15,7 +16,10 @@
 \renewcommand{\baselinestretch}{1.0}
 \newcommand\nd{\textsuperscript{nd}\xspace}
 \newcommand\rd{\textsuperscript{rd}\xspace}
-\newcommand\nth{\textsuperscript{th}\xspace} 
+\newcommand\nth{\textsuperscript{th}\xspace}
+
+\graphicspath{{./figures/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpeg}
 
 \setlength\parindent{24pt}
 
@@ -139,7 +143,78 @@ Recognizing geographic heterogeneity, the model incorporates differential region
 Extending beyond servers, the methodology includes networking equipment, storage arrays, and cooling infrastructure in the lifecycle inventory, modeling component-level replacement patterns such as discrete GPU swaps versus full server decommissioning. Emissions from manufacturing and transportation phases and toxic material releases (lead, chromium, cadmium) from e-waste are integrated, augmenting environmental impact assessments. Economic valuation of recovered materials (\~\$70 billion potential globally) and environmental benefits of recycling are quantified, thus providing a holistic lifecycle perspective bridging physical material flows and sustainability outcomes \citep{wang_2024_ewaste}.
 
 \section{Research Activities and Milestones}
-Use a flowchart for the research activities and a Gantt chart for the research schedules. 
+
+The activities and milestones can be separated into multiple phases:
+
+\begin{enumerate}
+    \item \textbf{Data Collection \& Model Foundation}
+    \begin{enumerate}
+        \item Complete GPU performance data collection
+        \item Establish data center partnerships for operational metrics
+        \item \textbf{Milestone:} GPU power consumption database compiled
+        \item Gather GAI adoption statistics and historical trends
+        \item Collect regional infrastructure data
+        \item \textbf{Milestone:} Comprehensive dataset assembled
+        \item Develop dynamic GPU power consumption curves
+        \item Build sigmoid technology adoption models
+        \item \textbf{Milestone:} Core modeling components ready
+    \end{enumerate}
+    
+    \item \textbf{Framework Development}
+    \begin{enumerate}
+        \item Implement CP-MFA framework with heterogeneous hardware modeling
+        \item Define Monte Carlo parameter distributions
+        \item \textbf{Milestone:} Base simulation framework operational
+        \item Integrate workload-specific power modeling
+        \item Add circular economy feedback loops
+        \item \textbf{Milestone:} Enhanced model features implemented
+        \item Complete lifecycle assessment expansion
+        \item Finalize regional infrastructure variations
+        \item \textbf{Milestone:} Full methodology framework complete
+    \end{enumerate}
+    
+    \item \textbf{Simulation \& Analysis}
+    \begin{enumerate}
+        \item Execute Monte Carlo simulations (10,000 iterations)
+        \item Initial statistical analysis of outputs
+        \item \textbf{Milestone:} Simulation results generated
+        \item Perform comprehensive sensitivity analysis
+        \item Calculate confidence intervals and risk assessments
+        \item \textbf{Milestone:} Statistical analysis complete
+        \item Results interpretation and scenario comparison
+        \item Validation against existing data
+        \item \textbf{Milestone:} Analysis findings finalized
+    \end{enumerate}
+    
+    \item \textbf{Dissemination}
+    \begin{enumerate}
+        \item Draft research paper and policy recommendations
+        \item Prepare industry guidelines
+        \item \textbf{Milestone:} Initial manuscript complete
+        \item Peer review process and revisions
+        \item Stakeholder consultations
+        \item \textbf{Milestone:} Revised manuscript ready
+        \item Final publication submission
+        \item Conference presentations and dissemination
+        \item \textbf{Milestone:} Research published and disseminated
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Research Activities Flowchart}
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.2\textwidth]{flowchart}
+    \end{center}
+    \caption{Flowchart of the research activities}\label{fig:flowchart}
+\end{figure}
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=1.0\textwidth]{gantt_chart}
+    \end{center}
+    \caption{Gantt chart of the research milestones}\label{fig:gantt_chart}
+\end{figure}
 
 \section{Expected Results and Impact}
 In this section, discussion will be on novel theories/findings/knowledge and the impact on society, nation and/or economy.
