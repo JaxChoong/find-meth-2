@@ -7,7 +7,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{mathptmx}
 \usepackage{enumerate}
-\usepackage{amsmath} 
+\usepackage{amsmath}
+\usepackage{graphicx}
 \usepackage[margin=0.5in]{geometry}
 
 \addbibresource{main.bib}
@@ -15,7 +16,10 @@
 \renewcommand{\baselinestretch}{1.0}
 \newcommand\nd{\textsuperscript{nd}\xspace}
 \newcommand\rd{\textsuperscript{rd}\xspace}
-\newcommand\nth{\textsuperscript{th}\xspace} 
+\newcommand\nth{\textsuperscript{th}\xspace}
+
+\graphicspath{{./figures/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpeg}
 
 \setlength\parindent{24pt}
 
@@ -34,9 +38,6 @@ LIM YU XUAN \quad 251UC18043 \quad 25\% \\
 
 \section*{Executive Summary}
 This includes the problem statement, objectives, research methodology, expected output and significance of output in a summary form. 
-\hfill
-\\
-\textbf{Keywords:} keyword1, keyword2 \\
 
 \section{Introduction}
 The field of artificial intelligence (AI) is experiencing a major boom, best captured by the exponential growth in the computational resources required to train the latest, top-notch models. \citet{Sevilla_Roldan_2024} report that the amount of training compute increased by 4.4 times annually between February 2022 and May 2024. The widespread use of AI in companies across various industries is accompanied by an ever-increasing computational demand for training AI models. According to \citet{Maslej2025}, 78\% of businesses used AI in at least one business function, up from 55\% in 2023 (p.~262).
@@ -63,12 +64,11 @@ Through analyzing multiple research works, several research gaps can be identifi
 Based on the research gaps identified, there are several research problems that arise: 
 
 \begin{enumerate}
- 	\item The Strategic Planning Problem: Without accurate, long-term projections of AI-driven e-waste after 2030, governments and businesses are unable to make strategic, well-informed decisions regarding the development of sustainable hardware, the allocation of resources for waste management, and future recycling infrastructure. As a result, society is not ready for the full impact of the e-waste wave that is anticipated to occur in the next ten to fifteen years.
+    \item The Strategic Planning Problem: Without accurate, long-term projections of AI-driven e-waste after 2030, governments and businesses are unable to make strategic, well-informed decisions regarding the development of sustainable hardware, the allocation of resources for waste management, and future recycling infrastructure. As a result, society is not ready for the full impact of the e-waste wave that is anticipated to occur in the next ten to fifteen years.
  
 	\item The Environmental Injustice Problem: There is a serious environmental injustice issue as a result of the lack of clear international regulations and moral standards for the disposal of AI e-waste.  The harmful effects of the AI revolution are disproportionately felt by developing countries, which have not profited from the advancement of the technology and are now dealing with chronic soil contamination, water pollution, and public health emergencies.
 	
- 	\item The Implementation Issue: Although the AI sector is aware of the concepts of circular economy, there is a serious implementation issue.  Businesses are reluctant to invest in strategies like hardware lifespan extension or module reuse because there are no standardized models or metrics to assess their efficacy and economic feasibility. This inaction perpetuates the linear "take-make-dispose" model, directly contributing to the growing e-waste crisis.
-	
+    \item The Implementation Issue: Although the AI sector is aware of the concepts of circular economy, there is a serious implementation issue.  Businesses are reluctant to invest in strategies like hardware lifespan extension or module reuse because there are no standardized models or metrics to assess their efficacy and economic feasibility. This inaction perpetuates the linear "take-make-dispose" model, directly contributing to the growing e-waste crisis.
 \end{enumerate}
 
 Despite the enormous global significance of problem (2), solving the fundamental problems of international law and trade policy would necessitate a scope that goes well beyond this computer science research project.  Similarly, the highly proprietary nature of hardware life cycle data and the absence of standardized measurement models hinder a thorough investigation, even though Problem (3) is crucial for the AI landscape.
@@ -85,18 +85,157 @@ After careful consideration, Problem (1) is selected as the main focus for this 
 \end{itemize}
 
 \section{Research Questions, Hypotheses and Objectives}
-Minimum of two and maximum of four for each of the research questions, hypotheses, and research objectives. You can use numbering/bullet point to list them out.
+\subsection*{Research Questions}
+\begin{enumerate}
+	\item What is the projected volume and growth trajectory of AI-driven e-waste from 2030 to 2035 when modeling technology proliferation with a sigmoid (S-curve) adoption curve instead of an exponential one?
+	\item How do key operational variables, such as server lifespan, GPU efficiency gains, and data center uptime contribute to the uncertainty and variability of long-term e-waste forecasts?
+	\item To what extent can the accuracy of AI e-waste forecasting be improved by replacing deterministic assumptions with a probabilistic model that incorporates dynamic, real-world hardware parameters?
+\end{enumerate}
+
+\subsection*{Hypotheses}
+\begin{enumerate}
+	\item H1: The growth of AI-driven e-waste will decelerate post-2030, following a sigmoid pattern, but the cumulative volume by 2035 will significantly exceed linear extrapolations from earlier models.
+	\item H2: A probabilistic forecast will reveal a wider and more realistic range of potential e-waste outcomes compared to a deterministic model, identifying server lifespan and GPU efficiency as the most sensitive parameters.
+	\item H3: A dynamic forecasting model that accounts for workload-specific power consumption and heterogeneous hardware refresh cycles will produce significantly different and more accurate e-waste projections than a static, homogeneous model.
+\end{enumerate}
+
+\subsection*{Objectives}
+\begin{enumerate}
+	\item To develop an enhanced Computational Power-driven Material Flow Analysis (CP-MFA) model that extends e-waste projections to the year 2035.
+	\item To implement a Monte Carlo simulation framework to integrate probabilistic distributions for key hardware and operational parameters, thereby quantifying uncertainty in the forecast.
+	\item To generate and analyze a baseline, optimistic, and pessimistic e-waste forecast for 2035, complete with confidence intervals, to serve as an actionable tool for policymakers and industry leaders.
+\end{enumerate}
 
 \section{Literature Review}
-This section contains analytic discussion of the related research papers. 
+The academic discourse on artificial intelligence's effects on the environment has evolved from a broad emphasis on energy usage to a more in-depth examination of the full hardware lifecycle. The study conducted by \citet{Wu2022} was crucial to this change, showing that embodied carbon—the emissions from producing AI hardware—makes up a significant and frequently disregarded amount of AI's overall carbon footprint.This viewpoint emphasizes how crucial it is to comprehend the entire hardware lifecycle, from manufacturing to eventual disposal as electronic waste, or "e-waste."  The sustainability of AI applications in any industry is inextricably linked to the environmental costs of the underlying hardware infrastructure, as further evidenced by research by \citet{M.rauf2024} on AI's role in electric vehicles.
+
+Recent studies have started to quantify the growing e-waste crisis caused by the AI industry's rapid hardware obsolescence, building on this lifecycle-aware context. \citet{wang_2024_ewaste} made the most important contribution in this field by creating the first Computational Power-driven Material Flow Analysis (CP-MFA) model.  An essential first step in comprehending the scope of the issue is this novel model, which offers a quantitative framework for predicting the amount of e-waste produced by AI servers.  Although the CP-MFA model is a significant accomplishment, its predictive power is restricted to 2030. This temporal restriction creates a significant gap in the literature because waste management infrastructure planning and effective policymaking necessitate far longer-term strategic foresight. 
+
+The ethical and legal issues raised by \citet{Zhuk2023} emphasize the importance of this disparity.  Zhuk's examination of the "hidden ecological costs" of artificial intelligence exposes a serious environmental injustice: hazardous e-waste is frequently sent to developing countries that are ill-equipped to dispose of it safely.  It is extremely challenging to create the political will required to enact the strong international regulations that Zhuk contends are required in the absence of a reliable, long-term forecast that fully captures the scope of the upcoming e-waste wave.  Consequently, this study aims to directly address this crucial forecasting gap.  This study will generate the first long-term e-waste forecast that lasts until at least 2035 by methodologically improving and expanding the fundamental CP-MFA model.
 
 \section{Research Methodology}
-This section contains a description about the steps involved in research methodology, which also includes the metrics to be used for evaluating the proposed method along with the brief description of the techniques/models/methods/algorithms to be used.
+This study employs a dynamic, probabilistic modeling approach to analyze the electronic waste (E-waste) generated by generative artificial intelligence (GAI) infrastructure, specifically AI servers supporting large language models (LLMs). Building on the Computational Power-driven Material Flow Analysis (CP-MFA) framework introduced by Wang et al. (2024), the methodology incorporates several improvements to realistically represent hardware lifecycle, operational factors, technology adoption, and circular economy impacts.
 
-You can use table/figure/image/graph in the report. All figures must have titles.
+\subsection{Model Structure}
+The core of the model predicts quarterly global deployments, in-use stocks, and end-of-service (EoS) E-waste from AI servers from 2020 to 2035. The computational power demand is linked to a benchmark GPU server (8-unit Nvidia DGX H100 system) to convert computational requirements into physical hardware stock and waste. Unlike prior exponential growth assumptions, this method applies a sigmoid adoption curve reflecting training-data-size constraints and technology maturation.
+
+\subsection{Key Parameterization}
+The model parameters are informed by empirical data and literature:
+
+\begin{enumerate}
+    \item Server Lifespan: Modeled as a normal distribution with a mean of 3.5 years and standard deviation of 0.8 years, reflecting industry data for compute hardware lifespans \citep{wang_2024_ewaste}.
+    \item GPU Efficiency Gains: Represented by a uniform distribution between 15\% and 40\% efficiency improvement per generation, informed by Nvidia GPU power management studies showing generation-over-generation reductions in power use \citep{nvidia-2023, you-2023}.
+    \item Data Center Uptime: Modeled as a Beta distribution with shape parameters $\alpha=17$ and $\beta=1.5$, ranging from 85\% to 98\%, capturing realistic enterprise data center operational uptimes across Tier 1 to Tier 4 facilities \citep{unknown-author-no-date, operations-2024}.
+    \item User Adoption Rates: Follow a log-normal distribution consistent with technology diffusion literature and sigmoid S-curve adoption behavior observed in AI deployments \citep{operations-2024, pamplona-2024}.
+    \item Market Penetration Caps: Triangular distribution with minimum 60\%, mode 80\%, and maximum 95\%, capturing saturation and market maturity levels derived from technology adoption frameworks \citep{fordyce-2025}.
+    \item Hardware Failure Rates: Beta distribution ranging 2\%-8\% annually, based on reported failure rates of GPUs and server components in operational data centers \citep{wang_2024_ewaste}.
+    \item Utilization Rates: Normal distribution with mean 70\% and standard deviation 15\%, truncated between 40\% and 90\%, consistent with reported server workload levels \citep{wang_2024_ewaste}.
+    \item Regional Deployment Timing: Applied as a normal distribution with ±6 months variation to model geographic variability in AI infrastructure rollouts.
+    \item Upgrade Thresholds: Uniform distribution spanning 20\%-40\% performance degradation due to factors like thermal throttling and aging hardware, motivating hardware refresh decisions \citep{you-2023}.
+    \item Recycling Success Rates: Beta distribution with 70\%-95\% material recovery rates, based on current e-waste recycling performance worldwide \citep{wang_2024_ewaste}.
+\end{enumerate}
+
+\subsection{Methodological Enhancements}
+\subsubsection{Dynamic GPU Power Consumption Modeling}
+Modern AI hardware exhibits significant variability in power consumption over time due to workload demands, thermal management, and architectural improvements. Instead of assuming constant computational power intensity per GPU server, the model integrates dynamic power consumption curves that capture real-world variations. Empirical studies from Nvidia GPU power management demonstrate generation-over-generation power efficiency gains ranging from 15\% to 40\%, achieved through advanced power sharing, dynamic voltage and frequency scaling (DVFS), and task-specific optimization. The model also accounts for thermal throttling and gradual performance degradation over the lifespan of GPUs, which typically triggers upgrades once performance drops between 20\% to 40\%. Incorporating these time-varying and hardware-specific behaviors enhances the accuracy of power usage estimation and aligns e-waste projections with observed operational realities in AI data centers \citep{you-2023, nvidia-2023, wang_2024_ewaste}.
+
+\subsubsection{Data Center Uptime Integration}
+Operational uptime in data centers is never absolute; factors like scheduled maintenance, unexpected outages, and load balancing create realistic periods of server inactivity or reduced utilization. The model applies a Beta distribution to represent enterprise data center uptime percentages, spanning 85\% to 98\%, reflecting the diversity from Tier 1 to Tier 4 facility standards. This integration adjusts server utilization rates downward from naive 100\% assumptions, realistically reflecting operational availability that impacts effective computational capacity and hardware wear. Such nuanced uptime modeling ensures that the estimation of deployed server stock and resulting e-waste properly considers real operational environments and maintenance cycles, ultimately leading to more precise forecasting of EoS hardware volumes \citep{unknown-author-no-date, operations-2024, wang_2024_ewaste}.
+
+\subsubsection{Sigmoid Technology Adoption Curve}
+Classical models rely on exponential computational growth via Moore’s Law, which simplifies technology proliferation estimates but fails to accommodate the real-world saturation effects of market limits and technology maturation. This method replaces exponential growth with a sigmoid or S-curve adoption trajectory that captures the initial slow uptake, rapid mid-phase expansion, and eventual plateauing as the market saturates the addressable user base and computational demands stabilize. The log-normal distribution fits historical technology adoption patterns and reflects variability in global AI infrastructure deployments. Embracing sigmoid growth constraints tied to a finite training data set and realistic adoption limits generates plausible scenarios for GAI proliferation and associated e-waste flows more consistent with observed technology diffusion dynamics \citep{pamplona-2024, fordyce-2025, wang_2024_ewaste}.
+
+\subsubsection{Heterogeneous Hardware Modeling}
+Data centers deploy a mixed inventory of server hardware encompassing varying generations of GPUs, CPUs, and emergent AI accelerators like TPUs or custom ASICs. The enhanced model captures this heterogeneity by representing servers with differing performance and power profiles and modeling staggered, non-uniform hardware refresh cycles. For example, GPU upgrades often occur approximately every two years, aligning with commercial release and deprecation schedules. This approach departs from simplified uniform-replacement assumptions to reflect realistic operational practices, including partial fleet refresh and maintenance-driven incremental updates. Explicitly modeling heterogeneity enables more accurate estimates of material flows, component-specific e-waste, and the effects of specialized AI hardware beyond traditional GPUs \citep{wang_2024_ewaste}.
+
+\subsubsection{Workload-Specific Power Modeling}
+AI workloads are diverse in nature and computational intensity depending on the task, such as training versus inference or domain-specific models like NLP and computer vision. This methodology differentiates power consumption profiles based on workload type and stage, incorporating reductions from efficient model compression, pruning, and optimization techniques that alleviate hardware demands without sacrificing accuracy. By integrating workload-level variability, this modeling avoids one-size-fits-all power assumptions, thus enhancing granularity for environmental impact analysis and forecasting the energy and e-waste implications of evolving AI applications and optimizations \citep{wang_2024_ewaste, you-2023}.
+
+\subsubsection{Circular Economy Feedback Loops}
+The model explicitly incorporates circular economy principles by simulating how recycling success rates (modeled as a Beta distribution from 70\% to 95\%) affect the demand for new hardware, closing the loop between materials recovered from end-of-life servers and newly manufactured components. It also accounts for geopolitical supply chain constraints, including rare earth element availability and trade-based technical barriers affecting component sourcing and regional deployment. Strategies such as lifespan extension through improved maintenance, module reuse by dismantling and repurposing critical components, and stepwise upgrading are modeled as they demonstrably reduce net e-waste generation. These feedback mechanisms imbue the model with strategic insight into how circular processes can mitigate e-waste growth amid the GAI boom \citep{wang_2024_ewaste}.
+
+\subsubsection{Probabilistic Scenario Analysis}
+To address uncertainty inherent in parameters like hardware failure rates, utilization, and adoption speeds, the enhanced methodology replaces deterministic scenario evaluation with Monte Carlo simulations using empirically grounded parameter distributions (e.g., Normal, Beta, Triangular). This probabilistic approach yields confidence intervals, revealing the range of possible e-waste outcomes and identifying sensitivities and risks. By embracing stochastic variability through repeated sampling, the model offers robust foresight for decision-making and policy formulation under uncertainty, improving upon previous single-value point estimates \citep{wang_2024_ewaste}.
+
+\subsubsection{Regional Infrastructure Variations}
+Recognizing geographic heterogeneity, the model incorporates differential regional standards in data center efficiency, hardware lifespans affected by climate and usage patterns, and variability in recycling infrastructure and regulatory environments. Server deployment proportions are modeled across major clusters—North America, East Asia, and Europe—with ±6 months timing variation to reflect logistic and supply chain disparities. This spatial differentiation is critical to accurately representing global e-waste flows and identifying region-specific challenges and interventions \citep{wang_2024_ewaste}.
+
+\subsubsection{Lifecycle Assessment Enhancement}
+Extending beyond servers, the methodology includes networking equipment, storage arrays, and cooling infrastructure in the lifecycle inventory, modeling component-level replacement patterns such as discrete GPU swaps versus full server decommissioning. Emissions from manufacturing and transportation phases and toxic material releases (lead, chromium, cadmium) from e-waste are integrated, augmenting environmental impact assessments. Economic valuation of recovered materials (\~\$70 billion potential globally) and environmental benefits of recycling are quantified, thus providing a holistic lifecycle perspective bridging physical material flows and sustainability outcomes \citep{wang_2024_ewaste}.
 
 \section{Research Activities and Milestones}
-Use a flowchart for the research activities and a Gantt chart for the research schedules. 
+
+The activities and milestones can be separated into multiple phases:
+
+\begin{enumerate}
+    \item \textbf{Data Collection \& Model Foundation}
+    \begin{enumerate}
+        \item Complete GPU performance data collection
+        \item Establish data center partnerships for operational metrics
+        \item \textbf{Milestone:} GPU power consumption database compiled
+        \item Gather GAI adoption statistics and historical trends
+        \item Collect regional infrastructure data
+        \item \textbf{Milestone:} Comprehensive dataset assembled
+        \item Develop dynamic GPU power consumption curves
+        \item Build sigmoid technology adoption models
+        \item \textbf{Milestone:} Core modeling components ready
+    \end{enumerate}
+    
+    \item \textbf{Framework Development}
+    \begin{enumerate}
+        \item Implement CP-MFA framework with heterogeneous hardware modeling
+        \item Define Monte Carlo parameter distributions
+        \item \textbf{Milestone:} Base simulation framework operational
+        \item Integrate workload-specific power modeling
+        \item Add circular economy feedback loops
+        \item \textbf{Milestone:} Enhanced model features implemented
+        \item Complete lifecycle assessment expansion
+        \item Finalize regional infrastructure variations
+        \item \textbf{Milestone:} Full methodology framework complete
+    \end{enumerate}
+    
+    \item \textbf{Simulation \& Analysis}
+    \begin{enumerate}
+        \item Execute Monte Carlo simulations (10,000 iterations)
+        \item Initial statistical analysis of outputs
+        \item \textbf{Milestone:} Simulation results generated
+        \item Perform comprehensive sensitivity analysis
+        \item Calculate confidence intervals and risk assessments
+        \item \textbf{Milestone:} Statistical analysis complete
+        \item Results interpretation and scenario comparison
+        \item Validation against existing data
+        \item \textbf{Milestone:} Analysis findings finalized
+    \end{enumerate}
+    
+    \item \textbf{Dissemination}
+    \begin{enumerate}
+        \item Draft research paper and policy recommendations
+        \item Prepare industry guidelines
+        \item \textbf{Milestone:} Initial manuscript complete
+        \item Peer review process and revisions
+        \item Stakeholder consultations
+        \item \textbf{Milestone:} Revised manuscript ready
+        \item Final publication submission
+        \item Conference presentations and dissemination
+        \item \textbf{Milestone:} Research published and disseminated
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Research Activities Flowchart}
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.2\textwidth]{flowchart}
+    \end{center}
+    \caption{Flowchart of the research activities}\label{fig:flowchart}
+\end{figure}
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=1.0\textwidth]{gantt_chart}
+    \end{center}
+    \caption{Gantt chart of the research milestones}\label{fig:gantt_chart}
+\end{figure}
 
 \section{Expected Results and Impact}
 This research aims to generate a comprehensive forecast for AI-driven e-waste up to the year 2035. By refining existing computational models, this study will provide more accurate estimates of the scale and timeline of e-waste growth related to the rapid adoption and evolution of AI hardware. This research highlights critical points in time where the rate of hardware obsolescence is likely to increase, as well as the potential volume of discarded devices that governments, businesses and recycling systems must be prepared to handle and overcome. \\
