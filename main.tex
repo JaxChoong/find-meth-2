@@ -37,7 +37,20 @@ LIM YU XUAN \quad 251UC18043 \quad 25\% \\
 \maketitle
 
 \section*{Executive Summary}
-This includes the problem statement, objectives, research methodology, expected output and significance of output in a summary form. 
+In recent years, the rapid advancement of artificial intelligence (AI) has led to an unprecedented increase in computational demand, resulting in accelerated hardware obsolecense. This behaviour has led to a global AI-driven e-waste crisis that remains to be explored and covered by current research and inadequately addressed by the technology and electronics industry. Furthermore, the existing forecasting models like ones from Wang et al., 2024 is only accounts for e-waste until 2030, therefore creating a long-term forecasting gap. \\
+\par This research aims to bridge this gap by extending the Computational Power-driven Material Flow Analysis (CP-MFA) model to forecast AI-driven e-waste up to the year of 2035. By incorporating probabilistic modeling such as Monte Carlo simulations to capture real-world variability in hardware and operational factors, this research aims to generate not just the baseline scenario, but also worst case and best case scenarios as a guide policymakers and industry leaders to curb the e-waste crisis. \\
+\par This research builds upon the existing CP-MFA framework with key methodological enhancements to cover research gaps, such as:
+\begin{itemize}
+	\item \textbf{Sigmoid (S-curve) adoption modeling} to replace exponential growth assumptions, reflecting market saturation and technology maturation.
+	\item \textbf{Dynamic GPU power consumption modeling} reflecting efficiency gains, degradation and workload variability.
+	\item \textbf{Heterogeneous hardware modeling} capturing staggered refresh cycles of GPUs, CPUs and AI accelerators.
+	\item \textbf{Circular economy feedback loops} simulating recycling rates, hardware reuse and material recovery.
+	\item \textbf{Probabilistic Monte Carlo simulations} to quantify uncertainty and sensitivity.
+	\item \textbf{Regional infrastructure differentiation} highlighting geographic variability in hardware deployment, lifespan and recycling.
+	\item \textbf{Lifecycle assessment} to include emissions from manufacturing, transport, and toxic waste disposal.\\
+\end{itemize}
+\par The expected outcome is to provide a long-term AI-driven e-waste forecast with confidence intervals, identifying the sensitive variables such as server lifespan, GPU efficiency and data center uptime that has the most influential impact on the forecast. This research will provide multiple scenario analysis and actionable insights for policymakers, industry leaders and researches to develop effective e-waste management strategies, and promote sustainable hardware practices. \\ 
+\par This research provides the first comprehensive forecast beyond 2030, filling in a crucial research gap. By supporting strategic policy planning, sustainable infrastructure development, and raising awareness of AI's environmental costs, this study aims to create a decision-support tool for governments, businesses and researchers to mitigate the impending e-waste crisis.
 
 \section{Introduction}
 The field of artificial intelligence (AI) is experiencing a major boom, best captured by the exponential growth in the computational resources required to train the latest, top-notch models. \citet{Sevilla_Roldan_2024} report that the amount of training compute increased by 4.4 times annually between February 2022 and May 2024. The widespread use of AI in companies across various industries is accompanied by an ever-increasing computational demand for training AI models. According to \citet{Maslej2025}, 78\% of businesses used AI in at least one business function, up from 55\% in 2023 (p.~262).
